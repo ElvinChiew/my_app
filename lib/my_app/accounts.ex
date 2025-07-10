@@ -118,4 +118,29 @@ defmodule MyApp.Accounts do
     end
   end
 
+  def ic_info(string) do
+    {_, rest} = String.split_at(string, 6)
+
+    {a, b} = String.split_at(rest, 2)
+
+    # Determine if user is Sabahan
+    state =
+      case a do
+        "12" -> "sabahan"
+        _ -> "bukan sabahan"
+      end
+
+    # Determine gender based on b
+    gender =
+      case Integer.parse(b) do
+        {num, ""} when rem(num, 2) == 0 -> "perempuan"
+        {num, ""} -> "lelaki"
+        _ -> "invalid input"
+      end
+
+    %{state: state, gender: gender}
+  end
+
+  # Optional fallback for bad input
+  def ic_info(_), do: %{error: "invalid input"}
 end
