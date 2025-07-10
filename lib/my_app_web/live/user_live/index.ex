@@ -5,6 +5,7 @@ defmodule MyAppWeb.UserLive.Index do
   alias MyApp.Accounts.User
 
   @impl true
+  @spec mount(any(), any(), Phoenix.LiveView.Socket.t()) :: {:ok, Phoenix.LiveView.Socket.t()}
   def mount(_params, _session, socket) do
     {:ok, stream(socket, :users, Accounts.list_users())}
   end

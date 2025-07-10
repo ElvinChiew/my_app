@@ -101,4 +101,21 @@ defmodule MyApp.Accounts do
   def change_user(%User{} = user, attrs \\ %{}) do
     User.changeset(user, attrs)
   end
+
+  def user_gender(%User{} = user) do
+    case user.gender do
+      "male" -> "male"
+      "female" -> "female"
+      _ -> "unknown"
+    end
+  end
+
+  def user_age(%User{} = user) do
+    case user.age do
+      age when age < 18 -> "minor"
+      age when age >= 18 and age <= 65 -> "adult"
+      _ -> "senior"
+    end
+  end
+
 end

@@ -5,6 +5,10 @@ defmodule MyApp.Accounts.User do
   schema "users" do
     field :name, :string
     field :age, :integer
+    field :address, :string
+    field :gender, :string
+    field :dob, :date
+    field :category, :string
 
     timestamps(type: :utc_datetime)
   end
@@ -12,7 +16,8 @@ defmodule MyApp.Accounts.User do
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:name, :age])
-    |> validate_required([:name, :age])
+    |> cast(attrs, [:name, :age, :address, :gender, :dob])
+    |> validate_required([:name, :age, :address, :gender, :dob])
+    |> validate_inclusion(:gender, ["male", "female"])
   end
 end

@@ -21,6 +21,10 @@ defmodule MyAppWeb.UserLive.FormComponent do
       >
         <.input field={@form[:name]} type="text" label="Name" />
         <.input field={@form[:age]} type="number" label="Age" />
+        <.input field={@form[:address]} type="text" label="Address" />
+        <.input type="select" field={@form[:gender]} label="Gender" prompt="Select gender" options={[{"Male", "male"}, {"Female", "female"}]} />
+        <!--<.input field={@form[:gender]} type="select" label="Gender" options={[{"Male", "male"}, {"Female", "female"}]} />-->
+        <.input field={@form[:dob]} type="date" label="Date of Birth" />
         <:actions>
           <.button phx-disable-with="Saving...">Save User</.button>
         </:actions>

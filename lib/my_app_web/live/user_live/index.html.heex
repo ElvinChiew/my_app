@@ -14,6 +14,9 @@
 >
   <:col :let={{_id, user}} label="Name">{user.name}</:col>
   <:col :let={{_id, user}} label="Age">{user.age}</:col>
+  <:col :let={{_id, user}} label="Gender">{user.gender}</:col>
+  <:col :let={{_id, user}} label="Category"><%= MyApp.Accounts.user_age(user) %></:col>
+
   <:action :let={{_id, user}}>
     <div class="sr-only">
       <.link navigate={~p"/users/#{user}"}>Show</.link>

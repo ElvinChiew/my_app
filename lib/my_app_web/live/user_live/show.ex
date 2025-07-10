@@ -18,4 +18,5 @@ defmodule MyAppWeb.UserLive.Show do
 
   defp page_title(:show), do: "Show User"
   defp page_title(:edit), do: "Edit User"
+  defp page_title(:bmi_calculator), do: "BMI Calculator"
 end
