@@ -27,6 +27,7 @@ defmodule MyAppWeb.Router do
     live "/users/:id/show/edit", UserLive.Show, :edit
 
     live "/users/:id/bmi_calculator", UserLive.Show, :bmi_calculator
+    live "/users/:id/validate_ic", UserLive.Show, :validate_ic
   end
 
   # Other scopes may use custom stacks.

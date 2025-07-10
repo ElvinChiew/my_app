@@ -8,6 +8,9 @@
     <.link patch={~p"/users/#{@user}/bmi_calculator"} phx.click={JS.push_focus()}>
       <.button>Calculate BMI</.button>
     </.link>
+    <.link patch={~p"/users/#{@user}/ic_validator"} phx.click={JS.push_focus()}>
+      <.button>Validate IC</.button>
+    </.link>
   </:actions>
 </.header>
 
@@ -40,6 +43,20 @@
   <.live_component
     module = {MyAppWeb.UserLive.BmiCalculatorComponent}
     id = "bmi_calculator"
+    title = {@page_title}
+    action = {@live_action}
+    user = {@user}
+    patch = {~p"/users/#{@user}"}
+  />
+</.modal>
+
+<.modal 
+  :if={@live_action == :ic_validator} 
+  id="validate-ic-modal" 
+  show on_cancel={JS.patch(~p"/users/#{@user}")}>
+  <.live_component
+    module = {MyAppWeb.UserLive.IcValidator}
+    id = "validate_ic"
     title = {@page_title}
     action = {@live_action}
     user = {@user}
