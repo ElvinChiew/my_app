@@ -128,7 +128,7 @@ defmodule MyAppWeb.UserLive.IcValidator do
           14 -> {"Kuala Lumpur", "#10B981"}
           15 -> {"Labuan", "#10B981"}
           16 -> {"Putrajaya", "#10B981"}
-          _ -> {"Non-Sabahan", "#3B82F6"}
+          _ -> {"Undefined", "#3B82F6"}
         end
 
       # Determine gender based on last part (zzzz)
