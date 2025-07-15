@@ -134,7 +134,7 @@ defmodule MyApp.Accounts do
     gender =
       case Integer.parse(b) do
         {num, ""} when rem(num, 2) == 0 -> "perempuan"
-        {num, ""} -> "lelaki"
+        {num, ""} when rem(num, 2) == 1 -> "lelaki"
         _ -> "invalid input"
       end
 
@@ -142,5 +142,5 @@ defmodule MyApp.Accounts do
   end
 
   # Optional fallback for bad input
-  def ic_info(_), do: %{error: "invalid input"}
+  #def ic_info(_), do: %{error: "invalid input"}
 end
