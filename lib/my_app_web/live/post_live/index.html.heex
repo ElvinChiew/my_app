@@ -9,12 +9,12 @@
 
 <.table
   id="post"
-  rows={@streams.post_collection}
+  rows={@streams.posts}
   row_click={fn {_id, post} -> JS.navigate(~p"/post/#{post}") end}
 >
   <:col :let={{_id, post}} label="Title">{post.title}</:col>
   <:col :let={{_id, post}} label="Body">{post.body}</:col>
-  <:col :let={{_id, post}} label="User ID">{post.user_id}</:col>
+  <:col :let={{_id, post}} label="User Name">{post.user.name}</:col>
   <:action :let={{_id, post}}>
     <div class="sr-only">
       <.link navigate={~p"/post/#{post}"}>Show</.link>
